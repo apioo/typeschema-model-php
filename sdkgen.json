@@ -1,0 +1,9 @@
+{
+  "type": "model-php",
+  "require": {
+    "typehub/typeschema": {
+      "target": "./src",
+      "namespace": "TypeSchema\\Model"
+    }
+  }
+}
