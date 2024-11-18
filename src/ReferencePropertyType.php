@@ -9,12 +9,12 @@ use PSX\Schema\Attribute\Description;
 #[Description('Represents a reference to a definition type')]
 class ReferencePropertyType extends PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('The target type, this must be a key which is available under the definitions keyword.')]
+    #[Description('The target type, this must be a key which is available under the definitions keyword')]
     protected ?string $target = null;
     /**
      * @var \PSX\Record\Record<string>|null
      */
-    #[Description('A map where the key is the name of the generic and the value must point to a key under the definitions keyword. This can be used in case the target points to a type which contains generics, then it is possible to replace those generics with a concrete type.')]
+    #[Description('A map where the key is the name of the generic and the value must point to a key under the definitions keyword. This can be used in case the target points to a type which contains generics, then it is possible to replace those generics with a concrete type')]
     protected ?\PSX\Record\Record $template = null;
     public function setTarget(?string $target) : void
     {
