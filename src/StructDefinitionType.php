@@ -16,9 +16,9 @@ class StructDefinitionType extends DefinitionType implements \JsonSerializable, 
     /**
      * @var \PSX\Record\Record<string>|null
      */
-    #[Description('In case a discriminator is configured it is required to configure a mapping. The mapping is a map where the key is the type name and the value the actual discriminator type value')]
+    #[Description('In case a discriminator is configured it is required to configure a mapping. The mapping is a map where the key is the type name (a key from the definitions map) and the value the actual discriminator type value')]
     protected ?\PSX\Record\Record $mapping = null;
-    #[Description('Defines a parent type, all properties from the parent type are inherited. Some programming languages like Go do not support the concept of an extends, in this case the code generator copies all properties into this structure')]
+    #[Description('Defines a parent type, all properties from the parent type are inherited')]
     protected ?ReferencePropertyType $parent = null;
     /**
      * @var \PSX\Record\Record<PropertyType>|null

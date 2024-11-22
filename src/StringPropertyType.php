@@ -9,7 +9,7 @@ use PSX\Schema\Attribute\Description;
 #[Description('Represents a string value')]
 class StringPropertyType extends ScalarPropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('Optional describes the format of the string. Supported are the following types: date, date-time and time. A code generator may use a fitting data type to represent such a format, if not supported it should fall back to a string')]
+    #[Description('Optional describes the format of the string. Supported are the following types: date, date-time and time. A code generator may use a fitting data type to represent such a format, if not supported it should fallback to a string')]
     protected ?string $format = null;
     public function setFormat(?string $format) : void
     {

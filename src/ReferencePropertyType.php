@@ -9,7 +9,7 @@ use PSX\Schema\Attribute\Description;
 #[Description('Represents a reference to a definition type')]
 class ReferencePropertyType extends PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('The target type, this must be a key which is available under the definitions keyword')]
+    #[Description('The target type, this must be a key which is available at the definitions map')]
     protected ?string $target = null;
     /**
      * @var \PSX\Record\Record<string>|null
