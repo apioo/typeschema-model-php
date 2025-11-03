@@ -25,6 +25,7 @@ class StructDefinitionType extends DefinitionType implements \JsonSerializable, 
      */
     #[Description('Contains a map of available properties for this struct')]
     protected ?\PSX\Record\Record $properties = null;
+    protected ?string $type = 'struct';
     public function setBase(?bool $base): void
     {
         $this->base = $base;
@@ -77,6 +78,14 @@ class StructDefinitionType extends DefinitionType implements \JsonSerializable, 
     {
         return $this->properties;
     }
+    public function setType(?string $type): void
+    {
+        $this->type = $type;
+    }
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
@@ -86,6 +95,7 @@ class StructDefinitionType extends DefinitionType implements \JsonSerializable, 
         $record->put('mapping', $this->mapping);
         $record->put('parent', $this->parent);
         $record->put('properties', $this->properties);
+        $record->put('type', $this->type);
         return $record;
     }
     public function jsonSerialize(): object

@@ -16,6 +16,7 @@ class ReferencePropertyType extends PropertyType implements \JsonSerializable, \
      */
     #[Description('A map where the key is the name of the generic and the value must point to a key under the definitions keyword. This can be used in case the target points to a type which contains generics, then it is possible to replace those generics with a concrete type')]
     protected ?\PSX\Record\Record $template = null;
+    protected ?string $type = 'reference';
     public function setTarget(?string $target): void
     {
         $this->target = $target;
@@ -38,12 +39,21 @@ class ReferencePropertyType extends PropertyType implements \JsonSerializable, \
     {
         return $this->template;
     }
+    public function setType(?string $type): void
+    {
+        $this->type = $type;
+    }
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
         $record = parent::toRecord();
         $record->put('target', $this->target);
         $record->put('template', $this->template);
+        $record->put('type', $this->type);
         return $record;
     }
     public function jsonSerialize(): object
