@@ -6,7 +6,7 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents a map which contains a dynamic set of key value entries of the same type')]
+#[Description('An object with a dynamic set of keys where every value conforms to the same schema.')]
 class MapDefinitionType extends CollectionDefinitionType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     protected ?string $type = 'map';

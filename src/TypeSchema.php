@@ -6,20 +6,20 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('TypeSchema specification')]
+#[Description('The root object of a TypeSchema document containing imports, definitions, and the entry point.')]
 class TypeSchema implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     /**
      * @var \PSX\Record\Record<DefinitionType>|null
      */
-    #[Description('')]
+    #[Description('A dictionary of all types available within this schema document.')]
     protected ?\PSX\Record\Record $definitions = null;
     /**
      * @var \PSX\Record\Record<string>|null
      */
-    #[Description('Allows to import other TypeSchema documents. It contains a map where the key is the namespace and the value points to a remote document. The value is a URL and a code generator should support at least the following schemes: file, http, https')]
+    #[Description('External TypeSchema documents to include, keyed by an alias namespace.')]
     protected ?\PSX\Record\Record $import = null;
-    #[Description('Specifies the root type of your specification, this must be a key which is available at the definitions map')]
+    #[Description('The main entry-point definition for the schema.')]
     protected ?string $root = null;
     /**
      * @param \PSX\Record\Record<DefinitionType>|null $definitions

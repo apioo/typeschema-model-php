@@ -6,7 +6,7 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents an integer value')]
+#[Description('Represents a whole number.')]
 class IntegerPropertyType extends ScalarPropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     protected ?string $type = 'integer';

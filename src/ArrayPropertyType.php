@@ -6,7 +6,7 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents an array which contains a dynamic list of values of the same type')]
+#[Description('A property containing a list of items of a consistent type.')]
 class ArrayPropertyType extends CollectionPropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     protected ?string $type = 'array';

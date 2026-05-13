@@ -6,7 +6,7 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents a float value')]
+#[Description('Represents a floating-point or decimal number.')]
 class NumberPropertyType extends ScalarPropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     protected ?string $type = 'number';

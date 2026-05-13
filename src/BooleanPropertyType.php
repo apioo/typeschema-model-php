@@ -6,7 +6,7 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents a boolean value')]
+#[Description('Represents a true or false value.')]
 class BooleanPropertyType extends ScalarPropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     protected ?string $type = 'boolean';

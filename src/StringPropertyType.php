@@ -6,12 +6,12 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents a string value')]
+#[Description('Represents a sequence of characters, optionally following a specific format.')]
 class StringPropertyType extends ScalarPropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('Optional a default value for this property')]
+    #[Description('The value to be used if the property is not explicitly provided.')]
     protected ?string $default = null;
-    #[Description('Optional describes the format of the string. Supported are the following types: date, date-time and time. A code generator may use a fitting data type to represent such a format, if not supported it should fallback to a string')]
+    #[Description('Provides specialized context for the string (e.g., \'date-time\').')]
     protected ?string $format = null;
     protected ?string $type = 'string';
     public function setDefault(?string $default): void

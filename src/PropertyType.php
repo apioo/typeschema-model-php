@@ -8,7 +8,7 @@ use PSX\Schema\Attribute\DerivedType;
 use PSX\Schema\Attribute\Description;
 use PSX\Schema\Attribute\Discriminator;
 
-#[Description('Base property type')]
+#[Description('The base abstract type for all property definitions within a struct or collection.')]
 #[Discriminator('type')]
 #[DerivedType(AnyPropertyType::class, 'any')]
 #[DerivedType(ArrayPropertyType::class, 'array')]
@@ -21,13 +21,13 @@ use PSX\Schema\Attribute\Discriminator;
 #[DerivedType(StringPropertyType::class, 'string')]
 abstract class PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('')]
+    #[Description('Flags the property as obsolete.')]
     protected ?bool $deprecated = null;
-    #[Description('')]
+    #[Description('Documentation for the specific property.')]
     protected ?string $description = null;
-    #[Description('')]
+    #[Description('Indicates whether the value can be null.')]
     protected ?bool $nullable = null;
-    #[Description('')]
+    #[Description('The discriminator value used to identify the specific property subclass.')]
     protected ?string $type = null;
     public function setDeprecated(?bool $deprecated): void
     {

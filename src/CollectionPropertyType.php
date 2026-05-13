@@ -8,15 +8,15 @@ use PSX\Schema\Attribute\DerivedType;
 use PSX\Schema\Attribute\Description;
 use PSX\Schema\Attribute\Discriminator;
 
-#[Description('Base collection property type')]
+#[Description('Abstract base for properties that reference inline maps or arrays.')]
 #[Discriminator('type')]
 #[DerivedType(ArrayPropertyType::class, 'array')]
 #[DerivedType(MapPropertyType::class, 'map')]
 abstract class CollectionPropertyType extends PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('')]
+    #[Description('The schema definition for the items contained in this property\'s collection.')]
     protected ?PropertyType $schema = null;
-    #[Description('')]
+    #[Description('The collection type identifier.')]
     protected ?string $type = null;
     public function setSchema(?PropertyType $schema): void
     {

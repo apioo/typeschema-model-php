@@ -6,7 +6,7 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents an any value which allows any kind of value')]
+#[Description('A wildcard property that accepts any valid JSON value (object, array, string, etc.).')]
 class AnyPropertyType extends PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
     protected ?string $type = 'any';

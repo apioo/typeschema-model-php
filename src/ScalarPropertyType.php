@@ -8,7 +8,7 @@ use PSX\Schema\Attribute\DerivedType;
 use PSX\Schema\Attribute\Description;
 use PSX\Schema\Attribute\Discriminator;
 
-#[Description('Base scalar property type')]
+#[Description('Abstract base for simple value types like strings, numbers, and booleans.')]
 #[Discriminator('type')]
 #[DerivedType(BooleanPropertyType::class, 'boolean')]
 #[DerivedType(IntegerPropertyType::class, 'integer')]
@@ -16,7 +16,7 @@ use PSX\Schema\Attribute\Discriminator;
 #[DerivedType(StringPropertyType::class, 'string')]
 abstract class ScalarPropertyType extends PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('')]
+    #[Description('The specific scalar type name.')]
     protected ?string $type = null;
     public function setType(?string $type): void
     {

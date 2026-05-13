@@ -6,24 +6,24 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('A struct represents a class/structure with a fix set of defined properties')]
+#[Description('Represents a fixed-structure object (class/record). It supports inheritance and explicit property definitions.')]
 class StructDefinitionType extends DefinitionType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('Indicates whether this is a base structure, default is false. If true the structure is used a base type, this means it is not possible to create an instance from this structure')]
+    #[Description('If true, this struct acts as an abstract template and cannot be instantiated directly.')]
     protected ?bool $base = null;
-    #[Description('Optional the property name of a discriminator property. This should be only used in case this is also a base structure')]
+    #[Description('The property name used to distinguish between different implementations of a base struct.')]
     protected ?string $discriminator = null;
     /**
      * @var \PSX\Record\Record<string>|null
      */
-    #[Description('In case a discriminator is configured it is required to configure a mapping. The mapping is a map where the key is the type name (a key from the definitions map) and the value the actual discriminator type value')]
+    #[Description('Maps discriminator values to their concrete definition names for polymorphic handling.')]
     protected ?\PSX\Record\Record $mapping = null;
-    #[Description('Defines a parent type, all properties from the parent type are inherited')]
+    #[Description('A reference to another struct from which this struct inherits properties.')]
     protected ?ReferencePropertyType $parent = null;
     /**
      * @var \PSX\Record\Record<PropertyType>|null
      */
-    #[Description('Contains a map of available properties for this struct')]
+    #[Description('A map of property names to their respective types defining the structure of the object.')]
     protected ?\PSX\Record\Record $properties = null;
     protected ?string $type = 'struct';
     public function setBase(?bool $base): void

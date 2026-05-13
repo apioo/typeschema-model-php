@@ -6,10 +6,10 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents a generic value which can be replaced with a concrete type')]
+#[Description('A placeholder for a type that will be specified at runtime or through template arguments.')]
 class GenericPropertyType extends PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('The name of the generic, it is recommended to use common generic names like T or TValue. These generics can then be replaced on usage with a concrete type through the template property at a reference')]
+    #[Description('The identifier for the generic (e.g., \'T\'). This is matched against template keys in a Reference.')]
     protected ?string $name = null;
     protected ?string $type = 'generic';
     public function setName(?string $name): void

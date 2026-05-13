@@ -8,18 +8,18 @@ use PSX\Schema\Attribute\DerivedType;
 use PSX\Schema\Attribute\Description;
 use PSX\Schema\Attribute\Discriminator;
 
-#[Description('Base definition type')]
+#[Description('The base abstract type for all schema definitions. It provides metadata common to all types such as descriptions and deprecation status.')]
 #[Discriminator('type')]
 #[DerivedType(ArrayDefinitionType::class, 'array')]
 #[DerivedType(MapDefinitionType::class, 'map')]
 #[DerivedType(StructDefinitionType::class, 'struct')]
 abstract class DefinitionType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('')]
+    #[Description('Indicates if this type is legacy and should no longer be used in new implementations.')]
     protected ?bool $deprecated = null;
-    #[Description('')]
+    #[Description('A brief explanation of the purpose and usage of this type.')]
     protected ?string $description = null;
-    #[Description('')]
+    #[Description('The discriminator value used to identify the specific definition subclass.')]
     protected ?string $type = null;
     public function setDeprecated(?bool $deprecated): void
     {

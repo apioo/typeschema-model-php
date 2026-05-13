@@ -6,15 +6,15 @@ namespace TypeSchema\Model;
 
 use PSX\Schema\Attribute\Description;
 
-#[Description('Represents a reference to a definition type')]
+#[Description('A reference to a defined type in the global \'definitions\' map.')]
 class ReferencePropertyType extends PropertyType implements \JsonSerializable, \PSX\Record\RecordableInterface
 {
-    #[Description('The target type, this must be a key which is available at the definitions map')]
+    #[Description('The name of the definition this property points to.')]
     protected ?string $target = null;
     /**
      * @var \PSX\Record\Record<string>|null
      */
-    #[Description('A map where the key is the name of the generic and the value must point to a key under the definitions keyword. This can be used in case the target points to a type which contains generics, then it is possible to replace those generics with a concrete type')]
+    #[Description('Maps generic names in the target type to concrete definition names.')]
     protected ?\PSX\Record\Record $template = null;
     protected ?string $type = 'reference';
     public function setTarget(?string $target): void
