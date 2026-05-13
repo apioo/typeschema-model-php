@@ -38,6 +38,9 @@ class StringPropertyType extends ScalarPropertyType implements \JsonSerializable
     {
         return $this->type;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */

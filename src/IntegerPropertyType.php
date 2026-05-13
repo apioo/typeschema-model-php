@@ -18,6 +18,9 @@ class IntegerPropertyType extends ScalarPropertyType implements \JsonSerializabl
     {
         return $this->type;
     }
+    /**
+     * @return \PSX\Record\RecordInterface<mixed>
+     */
     public function toRecord(): \PSX\Record\RecordInterface
     {
         /** @var \PSX\Record\Record<mixed> $record */
